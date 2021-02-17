@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/BorbSymbol.png"/>
+    <link rel="stylesheet" href="css/cad_style.css">
+    <title>Cadastro</title>
+</head>
+<body>
+
+    <div id="header"> 
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html"style="float:right"> Login</a></li>
+        </ul>
+
+        <div class="title">
+            <img src="img/PsicoFriendsBlueLG.png" width="330" height="120">
+        </div>
+    </div>
+
+    <footer class="footer">
+            <img src="img/Footer.png" width="100%" height="120px">
+    </footer>
+
+
+    <div class="formvolun">
+        <form action="usuario_cad.php" method="post" entype="multipart/form-data">
+            <br>
+                   <table>   
+                           <tr>
+                               <td><input name="txt_nome" type="text" size="57" placeholder="Nome Completo"value=""><br /></td>
+                           </tr>
+       
+                           <tr>
+                               <td><h7>Data de nascimento  : </h7><input type="date" name="data_nasc"max="2020-12-31">
+                                   <select name="cmb_sexo" id="cmb_sexo" class="caixa">
+                                   <option selected="selected" value="">Sexo</option>
+                                           <option value="M">Masculino</option>
+                                           <option value="F">Feminino</option>
+                                           <option value="O">Outro</option>
+                                   </select></br>
+                                </td>
+                           </tr>    
+       
+                           <tr>
+                              <td> <input name="txt_cel" id="txt_cel" type="text" size="57" placeholder="Celular" value=""><br /></td>
+                           </tr>                  
+       
+                           <tr>
+
+                               <td><input name="txt_email" type="text" size="57" maxlength="60" placeholder="Email " value=""><br /></td>
+                           </tr>
+                           <tr>
+                                <td><input type="password" name="txt_senha" type="text" size="50px"placeholder="Senha" value=""><br /></td>
+                            </tr>
+                            <br>
+                            <tr>
+                                <td><input type="password" name="txt_senha2" type="text" size="50px"placeholder="Confirmação de senha" value=""><br /></td>
+                                </tr>
+                                <br>
+                           <tr>
+                               <td><input name="btn_enviar" type="submit" value="Enviar"></td>
+                           </tr>
+                   </table>
+       </form>
+    </div>
+
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript">
+    
+      $(document).ready(function(){
+        $('.title , .formvolun').hide();
+        $('.title , .formvolun').fadeIn(2000);
+      })
+    
+    </script>
+
+                                       
+</body>
+</html>
+

@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Tahoma, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #00a8ff;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: white;
+  color: white;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color:  #00a8ff;
+    border: 1px solid white;
+    color: white;
+    padding:10px;
+    text-decoration: none;
+    margin: 6px 2px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Abrir Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Avalie o atendimento:</h2>
+    </div>
+    <div class="modal-body">
+      <span class="">Motivo do encerramento</span>
+      
+      <select name="motivo" id="motivo">
+        <option value="">Selecione</option>
+        <option value="1">Não tenho mais o que falar</option>
+        <option value="2">A atendente não responde</option>
+        <option value="3">Não gostei da atendente</option>
+      </select>
+      <br>
+        <textarea rows="4" cols="50" name="comment" placeholder="preencha com seu comentário"></textarea>
+       <br>
+        
+
+        <a href="javascript:void(0)" onclick="Avaliar(1)">
+            <img src="img/star0.png" id="s1"></a>
+    
+        <a href="javascript:void(0)" onclick="Avaliar(2)">
+            <img src="img/star0.png" id="s2"></a>
+    
+        <a href="javascript:void(0)" onclick="Avaliar(3)">
+            <img src="img/star0.png" id="s3"></a>
+    
+        <a href="javascript:void(0)" onclick="Avaliar(4)">
+            <img src="img/star0.png" id="s4"></a>
+    
+        <a href="javascript:void(0)" onclick="Avaliar(5)">
+            <img src="img/star0.png" id="s5"></a>
+    </div>
+    <div class="modal-footer">
+      <input type="submit" value="Enviar" size="30px">
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+function Avaliar(estrela) {
+
+var url = window.location;
+url = url.toString()
+url = url.split("modalestrela.html");
+url = url[0];
+
+var s1 = document.getElementById("s1").src;
+var s2 = document.getElementById("s2").src;
+var s3 = document.getElementById("s3").src;
+var s4 = document.getElementById("s4").src;
+var s5 = document.getElementById("s5").src;
+var avaliacao = 0;
+
+if (estrela == 5){        
+if (s5 == url + "img/star0.png") {
+    document.getElementById("s1").src = "img/star1.png";
+    document.getElementById("s2").src = "img/star1.png";
+    document.getElementById("s3").src = "img/star1.png";
+    document.getElementById("s4").src = "img/star1.png";
+    document.getElementById("s5").src = "img/star1.png";
+    avaliacao = 5;
+} else {
+    document.getElementById("s1").src = "img/star1.png";
+    document.getElementById("s2").src = "img/star1.png";
+    document.getElementById("s3").src = "img/star1.png";
+    document.getElementById("s4").src = "img/star1.png";
+    document.getElementById("s5").src = "img/star0.png";
+    avaliacao = 4;
+}}
+
+//ESTRELA 4
+if (estrela == 4){  
+if (s4 == url + "img/star0.png") {
+    document.getElementById("s1").src = "img/star1.png";
+    document.getElementById("s2").src = "img/star1.png";
+    document.getElementById("s3").src = "img/star1.png";
+    document.getElementById("s4").src = "img/star1.png";
+    document.getElementById("s5").src = "img/star0.png";
+    avaliacao = 4;
+} else {
+    document.getElementById("s1").src = "img/star1.png";
+    document.getElementById("s2").src = "img/star1.png";
+    document.getElementById("s3").src = "img/star1.png";
+    document.getElementById("s4").src = "img/star0.png";
+    document.getElementById("s5").src = "img/star0.png";
+    avaliacao = 3;
+}}
+
+//ESTRELA 3
+if (estrela == 3){  
+if (s3 == url + "img/star0.png") {
+    document.getElementById("s1").src = "img/star1.png";
+    document.getElementById("s2").src = "img/star1.png";
+    document.getElementById("s3").src = "img/star1.png";
+    document.getElementById("s4").src = "img/star0.png";
+    document.getElementById("s5").src = "img/star0.png";
+    avaliacao = 3;
+} else {
+    document.getElementById("s1").src = "img/star1.png";
+    document.getElementById("s2").src = "img/star1.png";
+    document.getElementById("s3").src = "img/star0.png";
+    document.getElementById("s4").src = "img/star0.png";
+    document.getElementById("s5").src = "img/star0.png";
+    avaliacao = 2;
+}}
+
+//ESTRELA 2
+if (estrela == 2){  
+if (s2 == url + "img/star0.png") {
+    document.getElementById("s1").src = "img/star1.png";
+    document.getElementById("s2").src = "img/star1.png";
+    document.getElementById("s3").src = "img/star0.png";
+    document.getElementById("s4").src = "img/star0.png";
+    document.getElementById("s5").src = "img/star0.png";
+    avaliacao = 2;
+} else {
+    document.getElementById("s1").src = "img/star1.png";
+    document.getElementById("s2").src = "img/star0.png";
+    document.getElementById("s3").src = "img/star0.png";
+    document.getElementById("s4").src = "img/star0.png";
+    document.getElementById("s5").src = "img/star0.png";
+    avaliacao = 1;
+}}
+
+//ESTRELA 1
+if (estrela == 1){  
+if (s1 == url + "img/star0.png") {
+    document.getElementById("s1").src = "img/star1.png";
+    document.getElementById("s2").src = "img/star0.png";
+    document.getElementById("s3").src = "img/star0.png";
+    document.getElementById("s4").src = "img/star0.png";
+    document.getElementById("s5").src = "img/star0.png";
+    avaliacao = 1;
+} else {
+    document.getElementById("s1").src = "img/star0.png";
+    document.getElementById("s2").src = "img/star0.png";
+    document.getElementById("s3").src = "img/star0.png";
+    document.getElementById("s4").src = "img/star0.png";
+    document.getElementById("s5").src = "img/star0.png";
+    avaliacao = 0;
+}}
+
+document.getElementById('rating').innerHTML = avaliacao;
+
+}
+
+</script>
+
+</body>
+</html>

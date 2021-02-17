@@ -1,0 +1,59 @@
+</html><!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="img/BorbSymbol.png">
+        <link rel="stylesheet" href="css/login_style.css">
+        <title> PsicoFriends - Login</title>
+     
+    </head>
+
+<body>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+    </ul>
+
+    <div id="meio">
+        <div class="titulo">
+            <img src="img/PsicoFriendsBlueLG.png" width="590" height="220">
+        </div>
+    </div>
+    <div id="login">
+        <div class="borbo">
+            <img src="img/loginborbo.png" width="200" height="230">
+        </div>
+        <div class="logform">
+            <form method="post" action="acesso_login.php"> 
+                <input type="text" name="email" placeholder="E-mail" value="" size="35px"> 
+                <br><br>
+                <input type="password" name="senha" placeholder="Senha" value="" size="35px"> 
+                <br><br>
+                <input type="submit" name="sub" value="Entrar" size="30px" onclick="window.location='index.html';"> 
+            </form> 
+            <a href="cad.html">Faça seu cadastro aqui:</a>
+        </div>
+    </div>
+
+
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript">
+    
+        $(document).ready(function(){
+
+            $('#meio .titulo').hide ();
+
+            $('#meio .titulo').fadeIn(2000);
+
+
+        })
+    
+    </script>
+
+    
+
+
+</body>
+</html>
+
